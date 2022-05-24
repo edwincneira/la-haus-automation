@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.Wait;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import utilities.Sleep;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static search.SearchAddressFind.*;
@@ -22,7 +23,7 @@ public class SearchAddress implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(BTN_LIST, isVisible()),
+                Sleep.aSeconds(3),
                 Click.on(BTN_LIST),
                 WaitUntil.the(TXT_WHERE_SEARCH, isVisible()).forNoMoreThan(4).seconds(),
                 Click.on(TXT_WHERE_SEARCH),
